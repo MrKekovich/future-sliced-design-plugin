@@ -1,11 +1,11 @@
 <!-- Plugin Configuration File. Read more: https://plugins.jetbrains.com/docs/intellij/plugin-configuration-file.html -->
 <idea-plugin>
     <!-- Unique identifier of the plugin. It should be FQN. It cannot be changed between the plugin versions. -->
-    <id>com.example.future_sliced_design</id>
+    <id>com.mrkekovich.future_sliced_design</id>
 
     <!-- Public plugin name should be written in Title Case.
          Guidelines: https://plugins.jetbrains.com/docs/marketplace/plugin-overview-page.html#plugin-name -->
-    <name>Future_sliced_design</name>
+    <name>Future Sliced Design</name>
 
     <!-- A displayed Vendor name or Organization ID displayed on the Plugins Page. -->
     <vendor email="mrkekovich.official@gmail.com" url="https://github.com/MrKekovich">MrKekovich</vendor>
@@ -15,7 +15,7 @@
          Guidelines: https://plugins.jetbrains.com/docs/marketplace/plugin-overview-page.html#plugin-description -->
     <description><![CDATA[
     <h1>Feature sliced design plugin</h1>
-    <p>this plugin provides package</p>
+    <p>this plugin provides package templates for future sliced design.</p>
   ]]></description>
 
     <!-- Product and plugin compatibility requirements.
@@ -25,6 +25,13 @@
     <!-- Extension points defined by the plugin.
          Read more: https://plugins.jetbrains.com/docs/intellij/plugin-extension-points.html -->
     <extensions defaultExtensionNs="com.intellij">
-
     </extensions>
+    <actions>
+        <group id="fsdPluginGroup" text="FSD Plugin Group">
+            <add-to-group group-id="NewGroup"/>
+            <action id="com.example.future_sliced_design.NewFsdAction"
+                    class="com.example.future_sliced_design.CreateNewPackageAction"
+                    text="TypeScript Package" description="Create new TypeScript package"/>
+        </group>
+    </actions>
 </idea-plugin>
