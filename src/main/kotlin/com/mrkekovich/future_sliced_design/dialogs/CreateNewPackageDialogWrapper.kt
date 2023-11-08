@@ -1,7 +1,7 @@
-package com.example.future_sliced_design.dialogs
+package com.mrkekovich.future_sliced_design.dialogs
 
-import com.example.future_sliced_design.utils.createPackageStructure
-import com.example.future_sliced_design.utils.validatePackageName
+import com.mrkekovich.future_sliced_design.utils.createPackageStructure
+import com.mrkekovich.future_sliced_design.utils.validatePackageName
 import com.intellij.openapi.actionSystem.AnActionEvent
 import com.intellij.openapi.actionSystem.PlatformDataKeys
 import com.intellij.openapi.ui.DialogWrapper

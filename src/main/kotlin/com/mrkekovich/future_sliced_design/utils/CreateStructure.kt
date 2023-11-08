@@ -1,4 +1,4 @@
-package com.example.future_sliced_design.utils
+package com.mrkekovich.future_sliced_design.utils
 
 import com.intellij.openapi.application.WriteAction
 import com.intellij.openapi.vfs.VirtualFile

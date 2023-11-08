@@ -30,7 +30,7 @@
         <group id="fsdPluginGroup" text="FSD Plugin Group">
             <add-to-group group-id="NewGroup"/>
             <action id="com.example.future_sliced_design.NewFsdAction"
-                    class="com.example.future_sliced_design.CreateNewPackageAction"
+                    class="com.mrkekovich.future_sliced_design.CreateNewPackageAction"
                     text="TypeScript Package" description="Create new TypeScript package"/>
         </group>
     </actions>

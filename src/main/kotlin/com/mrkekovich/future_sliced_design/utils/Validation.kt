@@ -1,4 +1,4 @@
-package com.example.future_sliced_design.utils
+package com.mrkekovich.future_sliced_design.utils
 
 import com.intellij.openapi.ui.ValidationInfo
 import javax.swing.JTextField
