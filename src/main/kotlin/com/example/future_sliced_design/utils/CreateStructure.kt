@@ -6,19 +6,19 @@ import com.intellij.openapi.vfs.VirtualFile
 val PACKAGES = listOf("lib", "model", "ui")
 
 fun createPackageStructure(
-    name: String,
+    packageName: String,
     parentDirectory: VirtualFile?,
     addExtra: Boolean
 ): VirtualFile? {
     val packageDir = createPackage(
-        name = name,
+        packageName = packageName,
         path = parentDirectory
     )
 
     if (addExtra) {
-        PACKAGES.map {
+        PACKAGES.forEach {
             createPackage(
-                name = it,
+                packageName = it,
                 path = packageDir
             )
         }
@@ -27,11 +27,11 @@ fun createPackageStructure(
     return packageDir
 }
 
-fun createPackage(name: String, path: VirtualFile?): VirtualFile? {
+fun createPackage(packageName: String, path: VirtualFile?): VirtualFile? {
     var directory: VirtualFile? = null
 
     WriteAction.run<Throwable> {
-        val currentDirectory = path?.createChildDirectory(null, name)
+        val currentDirectory = path?.createChildDirectory(null, packageName)
         currentDirectory?.createChildData(null, "index.ts")
 
         directory = currentDirectory
