@@ -10,7 +10,6 @@ import com.intellij.openapi.ui.addKeyboardAction
 import com.intellij.openapi.vfs.VirtualFile
 import java.awt.Dimension
 import java.awt.FlowLayout
-import java.awt.event.ActionEvent
 import java.awt.event.KeyEvent
 import javax.swing.*
 
