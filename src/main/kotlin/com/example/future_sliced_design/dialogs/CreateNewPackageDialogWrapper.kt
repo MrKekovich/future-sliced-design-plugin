@@ -10,6 +10,7 @@ import com.intellij.openapi.ui.addKeyboardAction
 import com.intellij.openapi.vfs.VirtualFile
 import java.awt.Dimension
 import java.awt.FlowLayout
+import java.awt.event.ActionEvent
 import java.awt.event.KeyEvent
 import javax.swing.*
 
@@ -21,16 +22,11 @@ class CreateNewPackageDialogWrapper(
         maximumSize = Dimension(Integer.MAX_VALUE, preferredSize.height)
 
         addKeyboardAction(KeyStroke.getKeyStroke(KeyEvent.VK_ENTER, 0)) {
-            createPackageStructure(
-                packageName = text,
-                parentDirectory = virtualFile,
-                addExtra = checkBoxIsTicked
-            )
-            dispose()
+            doOKAction()
         }
 
         addKeyboardAction(KeyStroke.getKeyStroke(KeyEvent.VK_ESCAPE, 0)) {
-            dispose()
+            doCancelAction()
         }
     }
 
@@ -50,14 +46,37 @@ class CreateNewPackageDialogWrapper(
     }
 
     override fun createSouthPanel(): JComponent {
-        val panel = JPanel(FlowLayout(FlowLayout.LEFT)).apply {
+        val createButton = JButton("Create").apply {
+            addActionListener {
+                doOKAction()
+            }
+        }
+        val panel = JPanel(FlowLayout(FlowLayout.RIGHT)).apply {
             add(checkBox)
+            add(createButton)
         }
         return panel
+
+    }
+
+    override fun doOKAction() {
+        createPackageStructure(
+            packageName = packageName,
+            parentDirectory = virtualFile,
+            addExtra = checkBoxIsTicked
+        )
+        close(OK_EXIT_CODE)
+    }
+
+    override fun doCancelAction() {
+        close(CANCEL_EXIT_CODE)
     }
 
     private val checkBoxIsTicked
         get() = checkBox.isSelected
+
+    private val packageName
+        get() = textField.text
 
     private val virtualFile: VirtualFile?
         get() = event.getData(PlatformDataKeys.VIRTUAL_FILE)
